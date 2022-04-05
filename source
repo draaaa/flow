@@ -51,3 +51,16 @@ local Dropdown2 = Section2:CreateDropdown("admins", {"cyrus", "drpoppa"}, functi
 	end
 end)
 
+-------------
+
+local Slider1 = Section3:CreateSlider("cam fov", 0,120,nil,true, function(Value)
+	local amount = fovamount
+
+game:GetService'Workspace'.Camera.FieldOfView = (Value)
+end)
+Slider1:AddToolTip("default is 70")
+Slider1:SetValue(70)
+
+-------------
+
+
