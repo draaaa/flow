@@ -1,6 +1,6 @@
 game.StarterGui:SetCore("SendNotification", {
     Title = "flow";
-    Text = "discontinued (sick of coding for a shitty game)";
+    Text = "discontinued for now (sick of coding for a shitty game)";
     Icon = "";
 })
 
@@ -45,11 +45,15 @@ end)
 
 local Dropdown2 = Section2:CreateDropdown("admins", {"cyrus", "drpoppa"}, function(Name)
 	if Name == "cyrus" then 
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/draaaa/wackycode/main/script",true))() 
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/draaaa/wackycode/main/cyrus",true))() 
 	leseif Name == "drpoppa" then 
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/DrPoppadopolist/DrPoppaV3/master/Script",true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/draaaa/wackycode/main/drpoppa_ob",true))()
 	end
 end)
+
+-------------
+
+Section2:CreateLabel("both of these are detected\nyoull get banned from reg ts")
 
 -------------
 
@@ -60,6 +64,13 @@ game:GetService'Workspace'.Camera.FieldOfView = (Value)
 end)
 Slider1:AddToolTip("default is 70")
 Slider1:SetValue(70)
+
+-------------
+
+local Button1 = Section3:CreateButton("anti-fe", function()
+	game:GetService'Players'.LocalPlayer.Character['Right Arm']:Destroy()
+end)
+Button1:AddToolTip("removes right arm, disables upon death")
 
 -------------
 
