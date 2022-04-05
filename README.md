@@ -2,7 +2,7 @@
 
 ==What is Flow?==
 
-Flow is a combo script mainly created for The Streets. Flow is focused around improving your gameplay without cheating. Cheats are added on the side, however you'll find Flow is more lacking in cheat features. Keep in mind that Flow is focused on legit gameplay rather than cheating your ass off.
+Flow is a combo script mainly created for The Streets, mainly focused around improving your gameplay without cheating. Cheats are added on the side, however you'll find Flow is more lacking in cheat features. Keep in mind that Flow is focused on legit gameplay rather than cheating your ass off.
 
 Flow supports the following games;
 
