@@ -45,7 +45,7 @@ end)
 
 local Dropdown2 = Section2:CreateDropdown("admins", {"cyrus", "drpoppa"}, function(Name)
 	if Name == "cyrus" then 
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/draaaa/wackycode/main/script",true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/draaaa/wackycode/main/script",true))() 
 	leseif Name == "drpoppa" then 
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/DrPoppadopolist/DrPoppaV3/master/Script",true))()
 	end
