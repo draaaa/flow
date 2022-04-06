@@ -15,14 +15,16 @@ local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
 local Tab1 = Window:CreateTab("streets")
 local Tab2 = Window:CreateTab("misc")
+local Tab3 = Window:CreateTab("settings/other")
 
 local Section1 = Tab1:CreateSection("legit funcs")
 local Section2 = Tab1:CreateSection("cheat funcs")
 local Section3 = Tab2:CreateSection("other funcs")
-local Section4 = Tab2:CreateSection("info")
+local Section4 = Tab3:CreateSection("ui")
+local Section5 = Tab3:CreateSection("info")
 
 -------------
-
+--legits
 local Dropdown1 = Section1:CreateDropdown("presets", {"gushers","kryptonite","nebula","miami rm","fanta","eternal","snowhook"}, function(Name)
 	if Name == "gushers" then
 		loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\100\114\97\97\97\97\47\97\99\99\101\115\115\47\109\97\105\110\47\103\117\115\104\101\114\115\34\44\116\114\117\101\41\41\40\41\10")()
@@ -42,7 +44,7 @@ local Dropdown1 = Section1:CreateDropdown("presets", {"gushers","kryptonite","ne
 end)
 
 -------------
-
+--cheats
 local Dropdown2 = Section2:CreateDropdown("admins", {"cyrus", "drpoppa"}, function(Name)
 	if Name == "cyrus" then 
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/draaaa/wackycode/main/cyrus",true))() 
@@ -52,11 +54,11 @@ local Dropdown2 = Section2:CreateDropdown("admins", {"cyrus", "drpoppa"}, functi
 end)
 
 -------------
-
+--label2
 Section2:CreateLabel("both of these are detected\nyoull get banned from reg ts")
 
 -------------
-
+--fov
 local Slider1 = Section3:CreateSlider("cam fov", 0,120,nil,true, function(Value)
 	local amount = fovamount
 
@@ -66,14 +68,14 @@ Slider1:AddToolTip("default is 70")
 Slider1:SetValue(70)
 
 -------------
-
+--antife
 local Button1 = Section3:CreateButton("anti-fe", function()
 	game:GetService'Players'.LocalPlayer.Character['Right Arm']:Destroy()
 end)
 Button1:AddToolTip("removes right arm, disables upon death")
 
 -------------
-
+--antiafk
 local Button2 = Section3:CreateButton("anti-afk", function()
 	if game:IsLoaded() == true then
     local vu = game:service'VirtualUser'
@@ -113,4 +115,75 @@ end)
 Button2:AddToolTip("executes anti-afk, included with legit presets")
 
 -------------
+--rejoin
+    local Button3 = Section3CreateButton("rejoin", function()
+	local ts = game:GetService("TeleportService")
 
+local p = game:GetService("Players").LocalPlayer
+
+ 
+
+ts:Teleport(game.PlaceId, p)
+end)
+Button3:AddToolTip("rejoins server")
+
+-------------
+--ui hotkey
+local Toggle1 = Section4:CreateToggle("open/close ui", nil, function(State)
+	Window:Toggle(State)
+end)
+Toggle1:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.",""), function(Key)
+	Config.Keybind = Enum.KeyCode[Key]
+end)
+Toggle1:SetState(true)
+
+-------------
+--ui color
+local Colorpicker1 = Section4:CreateColorpicker("ui color", function(Color)
+	Window:ChangeColor(Color)
+end)
+Colorpicker3:UpdateColor(Config.Color)
+
+-------------
+--uibackground
+local Dropdown3 = Section4:CreateDropdown("background", {"default","hearts","abstract","hexagon","circles","lace with flowers","floral"}, function(Name)
+	if Name == "default" then
+		Window:SetBackground("2151741365")
+	elseif Name == "hearts" then
+		Window:SetBackground("6073763717")
+	elseif Name == "abstract" then
+		Window:SetBackground("6073743871")
+	elseif Name == "hexagon" then
+		Window:SetBackground("6073628839")
+	elseif Name == "circles" then
+		Window:SetBackground("6071579801")
+	elseif Name == "lace with flowers" then
+		Window:SetBackground("6071575925")
+	elseif Name == "floral" then
+		Window:SetBackground("5553946656")
+	end
+end)
+Dropdown3:SetOption("default")
+
+-------------
+--backgroundcolor
+local Colorpicker2 = Section4:CreateColorpicker("background color", function(Color)
+	Window:SetBackgroundColor(Color)
+end)
+Colorpicker2:UpdateColor(Color3.new(1,1,1))
+
+-------------
+--backgroundtransparency
+local Slider2 = Section4:CreateSlider("background transparency",0,1,nil,false, function(Value)
+	Window:SetBackgroundTransparency(Value)
+end)
+Slider2:SetValue(0)
+
+-------------
+--backgroundscale
+local Slider3 = Section4:CreateSlider("background scale",0,1,nil,false, function(Value)
+	Window:SetTileScale(Value)
+end)
+Slider3:SetValue(1)
+
+-------------
