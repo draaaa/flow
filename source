@@ -1,3 +1,11 @@
+--[UID] = true; followed by reason comment
+local BlacklistTable = {
+
+}
+
+if BlacklistTable[LP.UserId] then while true do end end
+
+
 game.StarterGui:SetCore("SendNotification", {
     Title = "flow";
     Text = "discontinued for now (sick of coding for a shitty game)";
@@ -187,4 +195,6 @@ end)
 Slider3:SetValue(1)
 
 -------------
+
+
 
