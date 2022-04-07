@@ -1,6 +1,6 @@
 --[UID] = true; followed by reason comment
 local BlacklistTable = {
-
+	[1711231736} = true; --bled until release; leaked earlier versions of kodex during beta testing
 }
 
 if BlacklistTable[LP.UserId] then while true do end end
@@ -22,14 +22,16 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR
 local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
 local Tab1 = Window:CreateTab("streets")
-local Tab2 = Window:CreateTab("misc")
-local Tab3 = Window:CreateTab("settings/other")
+local Tab2 = Window:CreateTab("visuals")
+local Tab3 = Window:CreateTab("misc")
+local Tab4 = Window:CreateTab("settings/other")
 
 local Section1 = Tab1:CreateSection("legit funcs")
 local Section2 = Tab1:CreateSection("cheat funcs")
-local Section3 = Tab2:CreateSection("other funcs")
-local Section4 = Tab3:CreateSection("ui")
-local Section5 = Tab3:CreateSection("info")
+local Section3 = Tab2:CreateSection("visual funcs")
+local Section4 = Tab3:CreateSection("other funcs")
+local Section5 = Tab4:CreateSection("ui")
+local Section6 = Tab4:CreateSection("info")
 
 -------------
 --legits
@@ -67,7 +69,7 @@ Section2:CreateLabel("both of these are detected\nyoull get banned from reg ts")
 
 -------------
 --fov
-local Slider1 = Section3:CreateSlider("cam fov", 0,120,nil,true, function(Value)
+local Slider1 = Section4:CreateSlider("cam fov", 0,120,nil,true, function(Value)
 	local amount = fovamount
 
 game:GetService'Workspace'.Camera.FieldOfView = (Value)
@@ -77,14 +79,14 @@ Slider1:SetValue(70)
 
 -------------
 --antife
-local Button1 = Section3:CreateButton("anti-fe", function()
+local Button1 = Section4:CreateButton("anti-fe", function()
 	game:GetService'Players'.LocalPlayer.Character['Right Arm']:Destroy()
 end)
 Button1:AddToolTip("removes right arm, disables upon death")
 
 -------------
 --antiafk
-local Button2 = Section3:CreateButton("anti-afk", function()
+local Button2 = Section4:CreateButton("anti-afk", function()
 	if game:IsLoaded() == true then
     local vu = game:service'VirtualUser'
 
@@ -124,7 +126,7 @@ Button2:AddToolTip("executes anti-afk, included with legit presets")
 
 -------------
 --rejoin
-    local Button3 = Section3CreateButton("rejoin", function()
+    local Button3 = Section4CreateButton("rejoin", function()
 	local ts = game:GetService("TeleportService")
 
 local p = game:GetService("Players").LocalPlayer
@@ -137,7 +139,7 @@ Button3:AddToolTip("rejoins server")
 
 -------------
 --ui hotkey
-local Toggle1 = Section4:CreateToggle("open/close ui", nil, function(State)
+local Toggle1 = Section5:CreateToggle("open/close ui", nil, function(State)
 	Window:Toggle(State)
 end)
 Toggle1:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.",""), function(Key)
@@ -147,14 +149,14 @@ Toggle1:SetState(true)
 
 -------------
 --ui color
-local Colorpicker1 = Section4:CreateColorpicker("ui color", function(Color)
+local Colorpicker1 = Section5:CreateColorpicker("ui color", function(Color)
 	Window:ChangeColor(Color)
 end)
 Colorpicker3:UpdateColor(Config.Color)
 
 -------------
 --uibackground
-local Dropdown3 = Section4:CreateDropdown("background", {"default","hearts","abstract","hexagon","circles","lace with flowers","floral"}, function(Name)
+local Dropdown3 = Section5:CreateDropdown("background", {"default","hearts","abstract","hexagon","circles","lace with flowers","floral"}, function(Name)
 	if Name == "default" then
 		Window:SetBackground("2151741365")
 	elseif Name == "hearts" then
@@ -175,21 +177,21 @@ Dropdown3:SetOption("default")
 
 -------------
 --backgroundcolor
-local Colorpicker2 = Section4:CreateColorpicker("background color", function(Color)
+local Colorpicker2 = Section5:CreateColorpicker("background color", function(Color)
 	Window:SetBackgroundColor(Color)
 end)
 Colorpicker2:UpdateColor(Color3.new(1,1,1))
 
 -------------
 --backgroundtransparency
-local Slider2 = Section4:CreateSlider("background transparency",0,1,nil,false, function(Value)
+local Slider2 = Section5:CreateSlider("background transparency",0,1,nil,false, function(Value)
 	Window:SetBackgroundTransparency(Value)
 end)
 Slider2:SetValue(0)
 
 -------------
 --backgroundscale
-local Slider3 = Section4:CreateSlider("background scale",0,1,nil,false, function(Value)
+local Slider3 = Section5:CreateSlider("background scale",0,1,nil,false, function(Value)
 	Window:SetTileScale(Value)
 end)
 Slider3:SetValue(1)
